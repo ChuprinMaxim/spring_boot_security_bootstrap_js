@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+<!--Шапка начало-->
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <div class="navbar-brand">
+        <span id="current-user-name"></span>
+        with roles:
+        <span id="current-user-role"></span>
+    </div>
+
+    <div class="col-2">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--Шапка конец-->
+
+<div class="container-fluid ">
+    <br/>
+    <div class="row justify-content-md-center">
+
+        <!--       начало левая часть панели-->
+        <div class="col-lg-2 ">
+            <div class="list-group col-sm-12 sidenav">
+                <form action="/user" method="GET">
+                    <button class="btn btn-primary btn-block" style="text-align: left" type="submit">User</button>
+                </form>
+            </div>
+        </div>
+        <!--       конец левая часть панели-->
+
+        <!--       начало правая часть панели-->
+        <div class="col-lg-10 gray tab-content">
+            <h2>User information-page</h2>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="gray border">
+                        <h4 style="text-align: left; margin: 1%"> About user</h4>
+                    </div>
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                            </tr>
+                                </thead>
+
+<!--                    начало таблица выводится через JS                -->
+                                <tbody id="users-table"></tbody>
+<!--                    конец таблица выводится через JS                -->
+                        </table>
+
+                </div>
+            </div>
+            <!--       конец правая часть панели-->
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/user.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
