@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-@Transactional
 public class UserServiceImp implements UserService {
 
     private final RoleDao roleDao;
@@ -27,34 +26,41 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
     @Override
+    @Transactional
     public void addUserInformation(User user) {
         userDao.addUserInformation(user);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User getUserById(long id) {
         return userDao.getUserById(id);
     }
 
     @Override
+    @Transactional
     public void deleteUserById(long id) {
         userDao.deleteUserById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User getUserByEmail(String email) {
         return userDao.getUserByEmail(email);
     }
 
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return userDao.getUserByEmail(email);
     }
 
+    @Transactional(readOnly = true)
     public Set<Role> getRoles() {
         return Set.copyOf(roleDao.findAll());
     }
