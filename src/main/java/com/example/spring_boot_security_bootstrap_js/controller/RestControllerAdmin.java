@@ -39,6 +39,7 @@ public class RestControllerAdmin {
 
     @PutMapping("/users")
     public User updateUserInformation(@RequestBody User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.addUserInformation(user);
         return user;
     }
